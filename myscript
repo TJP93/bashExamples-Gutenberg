@@ -7,4 +7,4 @@ ls -l ${filename}
 
 
 
-cat ${filename}| sort | grep -oE "[a-z']{2,}" | grep -Fvwf Gutenberg/stopwords | uniq -c  | tr '[:upper:]' '[:lower:]' | sort -nr | head -n 15
+cat ${filename}| tr '[:upper:]' '[:lower:]'| grep -oE "[a-z']{2,}" | grep -Fvwf Gutenberg/stopwords  | sort | uniq -c  | sort -nr | head -n 15
