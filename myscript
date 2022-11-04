@@ -3,8 +3,16 @@
 
 filename=${1:-Gutenberg/Wonder.txt}
 
+filename1=${1:-Gutenberg/Glass.txt}
+
+filename2=${1:-Gutenberg/Violists.txt}
+
+
 ls -l ${filename}
-
-
-
 cat ${filename}| tr '[:upper:]' '[:lower:]'| grep -oE "[a-z']{2,}" | grep -Fvwf Gutenberg/stopwords  | sort | uniq -c  | sort -nr | head -n 15
+
+ls -l ${filename1}
+cat ${filename1}| tr '[:upper:]' '[:lower:]'| grep -oE "[a-z']{2,}" | grep -Fvwf Gutenberg/stopwords  | sort | uniq -c  | sort -nr | head -n 15
+
+ls -l ${filename2}
+cat ${filename2}| tr '[:upper:]' '[:lower:]'| grep -oE "[a-z']{2,}" | grep -Fvwf Gutenberg/stopwords  | sort | uniq -c  | sort -nr | head -n 15
