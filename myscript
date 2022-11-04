@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+
+filename=${1:-Gutenberg/Wonder.txt}
+
+ls -l ${filename}
+
+
+
+cat ${filename}| sort | grep -oE "[a-z']{2,}" | grep -Fvwf Gutenberg/stopwords | uniq -c  | tr '[:upper:]' '[:lower:]' | sort -nr | head -n 15
